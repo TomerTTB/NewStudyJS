@@ -33,53 +33,103 @@ const restaurant = {
             open: 0,
             close: 24,
         },
+    },
+    orderPasta: function (ing1, ing2, ing3) {
+        console.log(`Here is your delicious pasta with ${ing1} ${ing2} ${ing3}`)
     }
 };
 
-// Passing an Object into the functions thats in resturant object
-restaurant.orderDelivery({
-    time: '22:30',
-    address: 'Via del sole, 21',
-    mainIndex: 2,
-    starterIndex: 2,
-})
+// ...Spread operator
+const arr = [4, 5, 6];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
 
-// Using the defualt values
-restaurant.orderDelivery({
-    //   time: '22:30',
-    address: 'Via del sole, 21',
-    //  mainIndex: 2,
-    starterIndex: 2,
-})
+//using the ...
+const goodNewArr = [1, 2, ...arr];
+console.log(goodNewArr);
+console.log(...arr);
+
+//We can do that with Object also
+const newMenu = [...restaurant.mainMenu, "Falael"];
+console.log(newMenu);
+
+//Copy an array (Shallow copy)
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
+
+//Join arrays toghter
+const fullMenu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(fullMenu);
+
+//Iterables: arrays, strings. maps, sets. NOT OBJECTS!
+const str = 'jonas';
+const letters = [...str, " ", "S."];
+console.log(letters);
+
+const nameArr = [...str];
+console.log(nameArr);
+
+// const ingredients = [prompt('let\'s make pasta! Ingredients 1'), prompt('let\'s make pasta! Ingredients 2'), prompt('let\'s make pasta! Ingredients 3')];
+// console.log(ingredients);
+
+//restaurant.orderPasta(...ingredients);
+
+//Objects
+const newResturant = { foundedIn: 2001, ...restaurant, founder: 'TTB-Granit' }
+console.log(newResturant);
+
+// Object Copy
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Rome';
+console.log(restaurant.name);
+console.log(restaurantCopy.name);
 
 
-//Destructure an Object
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
 
-//Diffrent propreties name
-const { name: restaurantName, openingHours: hours, categories: tags } = restaurant;
-console.log(restaurantName, hours, tags);
+// // Passing an Object into the functions thats in resturant object
+// restaurant.orderDelivery({
+//     time: '22:30',
+//     address: 'Via del sole, 21',
+//     mainIndex: 2,
+//     starterIndex: 2,
+// })
 
-//Using defualt values, using defualt value + change property name
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+// // Using the defualt values
+// restaurant.orderDelivery({
+//     //   time: '22:30',
+//     address: 'Via del sole, 21',
+//     //  mainIndex: 2,
+//     starterIndex: 2,
+// })
 
-//Mutating variables
-let a = 111;
-let b = 999;
-const obj = { a: 23, b: 7, c: 14 };
-//{ a, b } = obj; We need to add () here due to syntax issue {} the JS expect a code block but we cant assign something to a code block
-({ a, b } = obj);
-console.log(a, b);
 
-//Nested Objects desctructure
-const { thu: { open, close } } = openingHours;
-console.log(open, close);
+// //Destructure an Object
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
 
-//Nested Objects desctructure diffrent propreties name
-const { fri: { open: o, close: c } } = openingHours;
-console.log(o, c);
+// //Diffrent propreties name
+// const { name: restaurantName, openingHours: hours, categories: tags } = restaurant;
+// console.log(restaurantName, hours, tags);
+
+// //Using defualt values, using defualt value + change property name
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
+
+// //Mutating variables
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14 };
+// //{ a, b } = obj; We need to add () here due to syntax issue {} the JS expect a code block but we cant assign something to a code block
+// ({ a, b } = obj);
+// console.log(a, b);
+
+// //Nested Objects desctructure
+// const { thu: { open, close } } = openingHours;
+// console.log(open, close);
+
+// //Nested Objects desctructure diffrent propreties name
+// const { fri: { open: o, close: c } } = openingHours;
+// console.log(o, c);
 
 // //Destructuring is a powerful feature that allows you to extract values from arrays or objects into separate variables
 
