@@ -36,38 +36,81 @@ const restaurant = {
     },
     orderPasta: function (ing1, ing2, ing3) {
         console.log(`Here is your delicious pasta with ${ing1} ${ing2} ${ing3}`)
+    },
+    orderPizza: function (mainIngredient, ...otherIngredients) {
+        console.log(mainIngredient);
+        console.log(otherIngredients);
     }
 };
 
+// REST operator (REST Operator will be on the left side)
+// To pack elements into an array
+// The Rest must be the last 
+// There can only be one Rest in any assignment
+
+//Destructuring 
+//Arrays
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, pasta, ...otherFoods] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(pizza, pasta, otherFoods);
+
+//Objects
+const { fri, ...weekDays } = restaurant.openingHours;
+console.log(fri, weekDays);
+
+//Functions
+const add = function (...args) {
+    let sum = 0;
+    for (let i = 0; i < args.length; i++) {
+        sum += args[i];
+    }
+    console.log(args);
+}
+
+add(1, 2);
+add(2, 15, 29, 22);
+
+const x = [12, 24, 15];
+add(...x);
+
+restaurant.orderPizza('mushrooms', 'onion', 'tomato', 'chilli');
+restaurant.orderPizza('mushrooms'); //We will get an empty array as the second argument
+
 // ...Spread operator
-const arr = [4, 5, 6];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
+// Spread Operator will be on the right side
+// Spread Operator to unpack an array
+// Allows you to expand elements of an array or properties of an object
 
-//using the ...
-const goodNewArr = [1, 2, ...arr];
-console.log(goodNewArr);
-console.log(...arr);
+// const arr = [4, 5, 6];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
 
-//We can do that with Object also
-const newMenu = [...restaurant.mainMenu, "Falael"];
-console.log(newMenu);
+// //using the ...
+// const goodNewArr = [1, 2, ...arr];
+// console.log(goodNewArr);
+// console.log(...arr);
 
-//Copy an array (Shallow copy)
-const mainMenuCopy = [...restaurant.mainMenu];
-console.log(mainMenuCopy);
+// //We can do that with Object also
+// const newMenu = [...restaurant.mainMenu, "Falael"];
+// console.log(newMenu);
 
-//Join arrays toghter
-const fullMenu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(fullMenu);
+// //Copy an array (Shallow copy)
+// const mainMenuCopy = [...restaurant.mainMenu];
+// console.log(mainMenuCopy);
 
-//Iterables: arrays, strings. maps, sets. NOT OBJECTS!
-const str = 'jonas';
-const letters = [...str, " ", "S."];
-console.log(letters);
+// //Join arrays toghter
+// const fullMenu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(fullMenu);
 
-const nameArr = [...str];
-console.log(nameArr);
+// //Iterables: arrays, strings. maps, sets. NOT OBJECTS!
+// const str = 'jonas';
+// const letters = [...str, " ", "S."];
+// console.log(letters);
+
+// const nameArr = [...str];
+// console.log(nameArr);
 
 // const ingredients = [prompt('let\'s make pasta! Ingredients 1'), prompt('let\'s make pasta! Ingredients 2'), prompt('let\'s make pasta! Ingredients 3')];
 // console.log(ingredients);
@@ -75,14 +118,14 @@ console.log(nameArr);
 //restaurant.orderPasta(...ingredients);
 
 //Objects
-const newResturant = { foundedIn: 2001, ...restaurant, founder: 'TTB-Granit' }
-console.log(newResturant);
+// const newResturant = { foundedIn: 2001, ...restaurant, founder: 'TTB-Granit' }
+// console.log(newResturant);
 
-// Object Copy
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'Ristorante Rome';
-console.log(restaurant.name);
-console.log(restaurantCopy.name);
+// // Object Copy
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'Ristorante Rome';
+// console.log(restaurant.name);
+// console.log(restaurantCopy.name);
 
 
 

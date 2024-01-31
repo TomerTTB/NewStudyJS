@@ -3,30 +3,49 @@ import books from './bookArray.js';
 // import { books }
 //     from './bookArray'
 
+//Rest operator
+
+// const [mainKeyword, ...rest] = books[0].keywords;
+// console.log(mainKeyword, rest);
+
+// const [bookPublisher, ...restOfTheBook] = [books[1].publisher, books[1]];
+// console.log(bookPublisher, restOfTheBook);
+// //or
+// const { publisher: bookPublisher1, ...restOfTheBook1 } = books[1];
+// console.log(bookPublisher1, restOfTheBook1);
+
+// const printBookAuthorsCount = function (title, ...authors) {
+//     console.log(authors);
+//     const outPut = `The book "${title}" has ${authors.length} authors`;
+//     console.log(outPut);
+// }
+
+// printBookAuthorsCount(books[0].title, 'Robert Sedgewick', 'Kevin Wayne');
+
 //Spread Operator
 
-const bookAuthors = [...books[0].author, ...books[1].author];
-console.log(bookAuthors);
+// const bookAuthors = [...books[0].author, ...books[1].author];
+// console.log(bookAuthors);
 
-const spellWord = function (arg) {
-    console.log(...arg);
-    const jsArr = [...arg];
-    let finalString = "";
+// const spellWord = function (arg) {
+//     console.log(...arg);
+//     const jsArr = [...arg];
+//     let finalString = "";
 
-    for (let i = 0; i < jsArr.length; i++) {
-        finalString += (`${jsArr[i]} `);
-    }
-    console.log(finalString);
-}
+//     for (let i = 0; i < jsArr.length; i++) {
+//         finalString += (`${jsArr[i]} `);
+//     }
+//     console.log(finalString);
+// }
 
-spellWord('JavaScript');
+// spellWord('JavaScript');
 
 
-function spellWord1(word) {
-    console.log(...word);
-}
+// function spellWord1(word) {
+//     console.log(...word);
+// }
 
-spellWord1('JavaScript');
+// spellWord1('JavaScript');
 
 //---------------------------------------------------------
 // const { title, author, ISBN } = books[0];
