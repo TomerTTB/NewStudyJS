@@ -3,6 +3,27 @@ import books from './bookArray.js';
 // import { books }
 //     from './bookArray'
 
+//Short Circuiting
+
+const hasExamplesInJava = function (books) {
+
+    return books === 'Java' || "no data available";
+
+}
+
+console.log(hasExamplesInJava(books[1].programmingLanguage));
+
+
+const isOnlineContent = function (books) {
+    for (let i = 0; i < books.length; i++) {
+        books[i].onlineContent === true && console.log(`${books[i].title} provides online content`);
+    }
+}
+
+isOnlineContent(books);
+
+
+
 //Rest operator
 
 // const [mainKeyword, ...rest] = books[0].keywords;

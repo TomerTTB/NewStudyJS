@@ -43,40 +43,64 @@ const restaurant = {
     }
 };
 
-// REST operator (REST Operator will be on the left side)
-// To pack elements into an array
-// The Rest must be the last 
-// There can only be one Rest in any assignment
+//Short Circuiting OR - Returns the first True value or the last if they are all FALSE
+console.log(3 || 'jonas');
+console.log("" || 'jonas');
+console.log(0 || "");
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
-//Destructuring 
-//Arrays
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others);
+restaurant.numGuests = 23;
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10; // The 10 us defualt value
+console.log(guest1);
 
-const [pizza, pasta, ...otherFoods] = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(pizza, pasta, otherFoods);
+const guest2 = restaurant.numGuests || 10; //That way we dont need the if
+console.log(guest2);
 
-//Objects
-const { fri, ...weekDays } = restaurant.openingHours;
-console.log(fri, weekDays);
+//Short Circuiting AND - Returns the first false value or the last if they are all TRUE
+console.log('Hello' && 23 && null && 'Jonas');
+console.log('Hello' && 23 && 'Tomer' && 'Jonas');
 
-//Functions
-const add = function (...args) {
-    let sum = 0;
-    for (let i = 0; i < args.length; i++) {
-        sum += args[i];
-    }
-    console.log(args);
+if (restaurant.orderPizza) {
+    restaurant.orderPizza('mushrooms', 'spinach');
 }
 
-add(1, 2);
-add(2, 15, 29, 22);
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach'); //That way we dont need the if
 
-const x = [12, 24, 15];
-add(...x);
+// REST operator (REST Operator will be on the left side)
+// To pack elements into an array
+// The Rest must be the last
+// There can only be one Rest in any assignment
 
-restaurant.orderPizza('mushrooms', 'onion', 'tomato', 'chilli');
-restaurant.orderPizza('mushrooms'); //We will get an empty array as the second argument
+//Destructuring
+//Arrays
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
+
+// const [pizza, pasta, ...otherFoods] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(pizza, pasta, otherFoods);
+
+// //Objects
+// const { fri, ...weekDays } = restaurant.openingHours;
+// console.log(fri, weekDays);
+
+// //Functions
+// const add = function (...args) {
+//     let sum = 0;
+//     for (let i = 0; i < args.length; i++) {
+//         sum += args[i];
+//     }
+//     console.log(args);
+// }
+
+// add(1, 2);
+// add(2, 15, 29, 22);
+
+// const x = [12, 24, 15];
+// add(...x);
+
+// restaurant.orderPizza('mushrooms', 'onion', 'tomato', 'chilli');
+// restaurant.orderPizza('mushrooms'); //We will get an empty array as the second argument
 
 // ...Spread operator
 // Spread Operator will be on the right side
