@@ -1,5 +1,24 @@
 'use strict'
 
+//ES6 Objects Literals 
+
+const weekDays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+const openingHours = {
+    thu: {
+        open: 12,
+        close: 22,
+    },
+    [weekDays[4]]: { //IN ES6 we can take the KEY from outside the object
+        open: 11,
+        close: 23,
+    },
+    [`day-${weekDays[0]}`]: {
+        open: 0,
+        close: 24,
+    },
+}
+
 const restaurant = {
     name: 'Classico Italiano',
     location: 'Via Angelo Tabanti 23, Firenze, Italy',
@@ -20,52 +39,128 @@ const restaurant = {
         will be delivered to: ${address}
         at: ${time}`)
     },
-    openingHours: {
-        thu: {
-            open: 12,
-            close: 22,
-        },
-        fri: {
-            open: 11,
-            close: 23,
-        },
-        sat: {
-            open: 0,
-            close: 24,
-        },
-    },
+
+    //ES6 Literals
+    //openingHours: openingHours, //This line instead of writing the object inside
+    //OR
+    openingHours,
+
+
+    // openingHours: {
+    //     thu: {
+    //         open: 12,
+    //         close: 22,
+    //     },
+    //     fri: {
+    //         open: 11,
+    //         close: 23,
+    //     },
+    //     sat: {
+    //         open: 0,
+    //         close: 24,
+    //     },
+    // },
+
     orderPasta: function (ing1, ing2, ing3) {
         console.log(`Here is your delicious pasta with ${ing1} ${ing2} ${ing3}`)
     },
-    orderPizza: function (mainIngredient, ...otherIngredients) {
+    //IN ES6 we can write the functions by removing the : function
+    orderPizza(mainIngredient, ...otherIngredients) {
         console.log(mainIngredient);
         console.log(otherIngredients);
     }
 };
 
+const rest1 = {
+    name: 'Capri',
+    numGuests: 0
+};
+
+const rest2 = {
+    name: 'CaLa Piazza',
+    owner: 'Tomer Giovani'
+};
+console.log(restaurant.openingHours);
+
+
+
+//For-of Loop
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// for (const item of menu)
+//     console.log(item);
+
+// //.entries - now each of the item is an array with the [index, Menu Item]
+// for (const item of menu.entries())
+//     console.log(item);
+
+// //Using destructering
+// for (const [i, el] of menu.entries())
+//     console.log(i + 1, el);
+
+// //Exercise
+// // Array of student scores
+// const scores = [85, 92, 78, 95, 88];
+
+// // Write a for...of loop to calculate the total score
+// let totalScore = 0;
+
+// // Your code here
+// for (const el of scores)
+//     totalScore += el;
+// // Display the total score
+// console.log(`Total Score: ${totalScore}`);
+
+//OR Assignment operator
+// rest1.numGuests = rest1.numGuests || 15;
+// rest2.numGuests = rest2.numGuests || 20;
+// console.log(rest1.numGuests);
+// console.log(rest2.numGuests);
+
+//We can write this in a shorter way with or without the Nullish OR operator
+// rest1.numGuests ??= 15;
+// rest2.numGuests ??= 10;
+// console.log(rest1.numGuests);
+// console.log(rest2.numGuests);
+
+//Remmber && will bring the first false value
+// rest1.owner = rest1.owner && '<Annon>';
+// rest2.owner = rest2.owner && '<Annon>';
+// rest1.owner &&= '<Annon>';
+// rest2.owner &&= '<Annon>';
+
+// console.log(rest1.owner);
+// console.log(rest2.owner);
+
+
+// Nullish: null / undefined - The operator will only consider this as false values (So 0 is true unlike OR)
+// restaurant.numGuests = null;
+// const guestCorrect = restaurant.numGuests && 10;
+// console.log(guestCorrect);
+
+
 //Short Circuiting OR - Returns the first True value or the last if they are all FALSE
-console.log(3 || 'jonas');
-console.log("" || 'jonas');
-console.log(0 || "");
-console.log(undefined || null);
-console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+// console.log(3 || 'jonas');
+// console.log("" || 'jonas');
+// console.log(0 || "");
+// console.log(undefined || null);
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
-restaurant.numGuests = 23;
-const guest1 = restaurant.numGuests ? restaurant.numGuests : 10; // The 10 us defualt value
-console.log(guest1);
+// restaurant.numGuests = 23;
+// const guest1 = restaurant.numGuests ? restaurant.numGuests : 10; // The 10 us defualt value
+// console.log(guest1);
 
-const guest2 = restaurant.numGuests || 10; //That way we dont need the if
-console.log(guest2);
+// const guest2 = restaurant.numGuests || 10; //That way we dont need the if
+// console.log(guest2);
 
-//Short Circuiting AND - Returns the first false value or the last if they are all TRUE
-console.log('Hello' && 23 && null && 'Jonas');
-console.log('Hello' && 23 && 'Tomer' && 'Jonas');
+// //Short Circuiting AND - Returns the first false value or the last if they are all TRUE
+// console.log('Hello' && 23 && null && 'Jonas');
+// console.log('Hello' && 23 && 'Tomer' && 'Jonas');
 
-if (restaurant.orderPizza) {
-    restaurant.orderPizza('mushrooms', 'spinach');
-}
+// if (restaurant.orderPizza) {
+//     restaurant.orderPizza('mushrooms', 'spinach');
+// }
 
-restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach'); //That way we dont need the if
+// restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach'); //That way we dont need the if
 
 // REST operator (REST Operator will be on the left side)
 // To pack elements into an array

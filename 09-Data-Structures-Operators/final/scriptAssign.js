@@ -3,25 +3,111 @@ import books from './bookArray.js';
 // import { books }
 //     from './bookArray'
 
+
+// The for-of Loop
+// let pageSum = 0;
+// for (const book of books)
+//     pageSum += book.pages;
+// console.log(pageSum);
+
+// Enhanced Object Literals
+// const bookData = [
+//     ['title', 'Computer Networking: A Top-Down Approach'],
+//     ['author', ['James F. Kurose', 'Keith W. Ross']],
+//     ['publisher', 'Addison Wesley'],
+// ];
+
+// // Do the rest
+// const newBook = {
+//     [bookData[0][0]]: bookData[0][1],
+//     [bookData[1][0]]: bookData[0][1],
+//     [bookData[2][0]]: bookData[2][1]
+// };
+
+// console.log(newBook);
+
+
+// const pages = 880;
+
+// const newBook2 = {
+//     title: 'The C Programming Language',
+//     author: ['Brian W. Kernighan', 'Dennis M. Ritchie'],
+//     pages
+// }
+
+// console.log(newBook2);
+
+// let allAuthors = [];
+// for (const book of books) {
+//     if (typeof book.author === 'object') {
+//         for (const authorItem of book.author) {
+//             allAuthors.push(authorItem);
+//         }
+//     } else {
+//         allAuthors.push(book.author);
+//     }
+// }
+// console.log(allAuthors);
+
+
+// for (const [i, book] of books.entries()) {
+//     const authorName = book.author;
+//     console.log(`ID:${i + 1}, Author:${authorName}`);
+// }
+
+// for (const [index, author] of allAuthors.entries()) {
+//     console.log(`${index + 1}. ${author}`);
+// }
+
+
+//Logical Assignments
+
+// const ishighlighted = function () {
+//     for (let i = 0; i < books.length; i++) {
+//         books[i].highlighted &&= !(books[i].thirdParty.goodreads.rating < 4.2);
+//     }
+// }
+
+// ishighlighted();
+
+
+// const isedition = function () {
+//     for (let i = 0; i < books.length; i++) {
+//         books[i].edition ||= 1;
+//     }
+// }
+// isedition();
+
+// // Nullish Coalescing Operator
+// const isOnlineContent = function () {
+//     for (let i = 0; i < books.length; i++) {
+//         books[i].onlineContent && console.log(`"${books[i].title} provides no data about its online content"`);
+//         // When there is nothing (No entry in the object) then he will go to the console.log
+//     }
+// }
+// isOnlineContent();
+
+// restaurant.numGuests = null;
+// const guestCorrect = restaurant.numGuests && 10;
+
 //Short Circuiting
 
-const hasExamplesInJava = function (books) {
+// const hasExamplesInJava = function (books) {
 
-    return books === 'Java' || "no data available";
+//     return books === 'Java' || "no data available";
 
-}
+// }
 
-console.log(hasExamplesInJava(books[1].programmingLanguage));
+// console.log(hasExamplesInJava(books[1].programmingLanguage));
 
 
-const isOnlineContent = function (books) {
-    for (let i = 0; i < books.length; i++) {
-        books[i].onlineContent === true && console.log(`${books[i].title} provides online content`);
-    }
-}
+// const isOnlineContent = function (books) {
+//     for (let i = 0; i < books.length; i++) {
+//         books[i].onlineContent === true && console.log(`${books[i].title} provides online content`);
+//     }
+// }
 
-isOnlineContent(books);
-
+// isOnlineContent(books);
 
 
 //Rest operator
